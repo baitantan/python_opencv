@@ -1,0 +1,22 @@
+import cv2
+src = cv2.imread("D:\\tesseract\\OpenCVTest\\ddd.jpg")
+src_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+src_edge = cv2.medianBlur(src, 5)
+
+result = cv2.Canny(src_edge, 160, 240, 3)
+cv2.namedWindow('src_gray', cv2.WINDOW_NORMAL)
+cv2.resizeWindow("src_gray", 300, 400)
+cv2.moveWindow("src_gray", 200, 100)
+cv2.imshow("src_gray", src_gray)
+cv2.waitKey(0)
+cv2.namedWindow('src_edge', cv2.WINDOW_NORMAL)
+cv2.resizeWindow("src_edge", 300, 400)
+cv2.moveWindow("src_edge", 200, 100)
+cv2.imshow("src_edge", src_edge)
+
+cv2.waitKey(0)
+cv2.namedWindow('result', cv2.WINDOW_NORMAL)
+cv2.resizeWindow("result", 300, 400)
+cv2.moveWindow("result", 200, 100)
+cv2.imshow("result", result)
+cv2.waitKey(0)
